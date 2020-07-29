@@ -1,0 +1,139 @@
+actions:
+- action_check_city
+- action_check_email
+- action_reset
+- action_reset_slots
+- action_restart
+- action_restarted
+- action_search_restaurants
+- action_send_email
+- utter_ask_anything
+- utter_ask_budget
+- utter_ask_city
+- utter_ask_cuisine
+- utter_ask_howcanihelp
+- utter_ask_ifemail
+- utter_askemail
+- utter_default
+- utter_email_error
+- utter_email_sent
+- utter_goodbye
+- utter_greet
+- utter_incorrect_emailid
+- utter_nontier
+- utter_noresults
+- utter_repeat
+- utter_thanks
+entities:
+- budget
+- buget
+- city
+- cuisine
+- email
+intents:
+- restaurant_search
+- greet
+- ask_email
+- affirm
+- deny
+- choose
+- goodbye
+- send_email
+- stop
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 0
+slots:
+  budget:
+    type: text
+  city:
+    type: text
+  city_tier12:
+    initial_value: false
+    type: bool
+  cuisine:
+    type: text
+  email:
+    type: text
+  email_validate:
+    initial_value: false
+    type: bool
+  mail_sent:
+    initial_value: false
+    type: bool
+  noresults:
+    initial_value: false
+    type: bool
+templates:
+  utter_ask_anything:
+  - text: Is there anything else i can help you with?
+  - text: Anything else i can assist you on?
+  utter_ask_budget:
+  - buttons:
+    - payload: '/choose{"budget": "low"}'
+      title: Lesser than Rs. 300
+    - payload: '/choose{"budget": "medium"}'
+      title: Rs. 300 to 700
+    - payload: '/choose{"budget": "high"}'
+      title: More than 700
+    text: What price range are you looking at??
+  utter_ask_city:
+  - text: In which city?
+  - text: In which city are you looking for options
+  utter_ask_cuisine:
+  - buttons:
+    - payload: '/choose{"cuisine": "Chinese"}'
+      title: Chinese
+    - payload: '/choose{"cuisine": "Mexican"}'
+      title: Mexican
+    - payload: '/choose{"cuisine": "Italian"}'
+      title: Italian
+    - payload: '/choose{"cuisine": "American"}'
+      title: American
+    - payload: '/choose{"cuisine": "South Indian"}'
+      title: South Indian
+    - payload: '/choose{"cuisine": "North Indian"}'
+      title: North Indian
+    text: What kind of cuisine would you like?
+  utter_ask_howcanihelp:
+  - text: How can I help you?
+  utter_ask_ifemail:
+  - text: Would you like to have the top results sent via email?
+  - text: Shall I send you the top results via email?
+  - text: Would you be interested in having top results emailed to you?
+  - text: Do you wish to receive the top results via email?
+  utter_askemail:
+  - text: Could you please share your email address then?
+  - text: Ok! What is your email address?
+  - text: Please share your email address then
+  - text: Please enter your email address
+  utter_default:
+  - text: Sorry! I could not understand that.
+  utter_email_error:
+  - text: Sorry, the email could not be sent, something went wrong.
+  - text: Sorry, something went wrong, could not send the email.
+  utter_email_sent:
+  - text: The top results have been emailed to you.
+  - text: An email has been sent to the address provided.
+  utter_goodbye:
+  - text: Goodbye
+  - text: Bye-bye
+  utter_greet:
+  - text: Hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  utter_incorrect_emailid:
+  - text: Please enter a valid emailid
+  - text: There seems to be an error. Please verify the emailid provided
+  utter_nontier:
+  - text: Sorry! We do not operate in this area yet.
+  - text: Unfortunately, we do not operate in this area yet.
+  utter_noresults:
+  - text: That's unfortunate. May I help you with any other search?
+  - text: Sorry for that! Can I help you with something else?
+  utter_repeat:
+  - text: Sorry didn't get that. Can you please repeat?
+  utter_thanks:
+  - text: Thanks!
+  - text: Thank You!! Have a good day.
+  - text: Bon Apetite!
